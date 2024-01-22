@@ -53,10 +53,10 @@ class Game
         switch (shopChoice)
         {
             case "1":
-                BuyItem("Spacesuit", 50);
+                BuyItem("Spacesuit", 100);
                 break;
             case "2":
-                BuyItem("Laser Gun", 30);
+                BuyItem("Laser Gun", 40);
                 break;
             case "3":
                 BuyItem("Energy Drink", 10);
