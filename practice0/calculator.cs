@@ -1,4 +1,4 @@
-// Basic C# Calculator Program ..
+// Basic C# Calculator Program with features such as Add, Substract, Multiply, & Divide.
 using System;
 class Calculator
 {
