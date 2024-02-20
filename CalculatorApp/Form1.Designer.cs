@@ -1,4 +1,7 @@
-﻿namespace CalculatorApp
+// Date: 2024-02-20
+// Author: Malek Mansour
+
+namespace CalculatorApp
 {
     partial class Form1
     {
