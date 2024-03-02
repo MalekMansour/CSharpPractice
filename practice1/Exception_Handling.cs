@@ -1,5 +1,4 @@
 using System;
-
 public class Circle
 {
     private double Radius;
@@ -21,7 +20,7 @@ class Program
         try
         {
             Circle Circle1 = new Circle();
-            Circle1.SetRadius(6);
+            Circle1.SetRadius(9);
             Console.WriteLine(Circle1);
         }
         catch (InvalidRadiusException ex)
@@ -32,7 +31,7 @@ class Program
         try
         {
             Circle Circle2 = new Circle();
-            Circle2.SetRadius(-2);
+            Circle2.SetRadius(-4);
             Console.WriteLine(Circle2);
         }
         catch (InvalidRadiusException ex)
