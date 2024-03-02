@@ -1,4 +1,5 @@
 using System;
+
 public class Circle
 {
     private double Radius;
@@ -17,9 +18,33 @@ class Program
 {
     static void Main(string[] args)
     {
-        PrintValidCircle(6);
-        PrintValidCircle(-2);
-        PrintValidCircle(0);
+        try
+        {
+            PrintValidCircle(6);
+        }
+        catch (InvalidRadiusException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        try
+        {
+            PrintValidCircle(-2);
+        }
+        catch (InvalidRadiusException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        try
+        {
+            PrintValidCircle(0);
+        }
+        catch (InvalidRadiusException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
         Console.ReadKey();
     }
 
