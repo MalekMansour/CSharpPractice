@@ -20,7 +20,9 @@ class Program
     {
         try
         {
-            PrintValidCircle(6);
+            Circle Circle1 = new Circle();
+            Circle1.SetRadius(6);
+            Console.WriteLine(Circle1);
         }
         catch (InvalidRadiusException ex)
         {
@@ -29,7 +31,9 @@ class Program
 
         try
         {
-            PrintValidCircle(-2);
+            Circle Circle2 = new Circle();
+            Circle2.SetRadius(-2);
+            Console.WriteLine(Circle2);
         }
         catch (InvalidRadiusException ex)
         {
@@ -38,7 +42,9 @@ class Program
 
         try
         {
-            PrintValidCircle(0);
+            Circle Circle3 = new Circle();
+            Circle3.SetRadius(0);
+            Console.WriteLine(Circle3);
         }
         catch (InvalidRadiusException ex)
         {
@@ -46,19 +52,5 @@ class Program
         }
 
         Console.ReadKey();
-    }
-
-    static void PrintValidCircle(double radius)
-    {
-        try
-        {
-            var circle = new Circle();
-            circle.SetRadius(radius);
-            Console.WriteLine(circle);
-        }
-        catch (InvalidRadiusException ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
     }
 }
