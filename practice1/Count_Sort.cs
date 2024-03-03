@@ -34,15 +34,12 @@ class Program
     {
         while (true)
         {
-            // Ask the user for input
             Console.Write("Enter a bunch of letters (type 'exit' to quit): ");
             string userInput = Console.ReadLine();
 
-            // Check if the user wants to exit
             if (userInput.ToLower() == "exit")
                 break;
 
-            // Call the function to count and sort letters
             CountAndSortLetters(userInput);
         }
     }
