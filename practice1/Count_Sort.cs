@@ -11,10 +11,8 @@ class Program
 
         foreach (char c in inputString)
         {
-            // Check if the character is a letter
             if (char.IsLetter(c))
             {
-                // Increment the count for this letter in the dictionary
                 if (letterCounts.ContainsKey(c))
                     letterCounts[c]++;
                 else
