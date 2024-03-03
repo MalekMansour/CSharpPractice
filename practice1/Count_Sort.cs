@@ -20,10 +20,8 @@ class Program
             }
         }
         
-        // Sort the dictionary by keys (letters)
         var sortedLetterCounts = letterCounts.OrderBy(x => x.Key);
         
-        // Print the sorted letter counts
         foreach (var pair in sortedLetterCounts)
         {
             Console.WriteLine($"{pair.Key}: {pair.Value}");
