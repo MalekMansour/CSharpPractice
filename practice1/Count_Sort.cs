@@ -6,7 +6,6 @@ class Program
 {
     static void CountAndSortLetters(string inputString)
     {
-        // Convert input string to lowercase to make case-insensitive
         inputString = inputString.ToLower();
         
         // Initialize a dictionary to store letter counts
