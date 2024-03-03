@@ -7,11 +7,8 @@ class Program
     static void CountAndSortLetters(string inputString)
     {
         inputString = inputString.ToLower();
-        
-        // Initialize a dictionary to store letter counts
         Dictionary<char, int> letterCounts = new Dictionary<char, int>();
-        
-        // Iterate through each character in the input string
+
         foreach (char c in inputString)
         {
             // Check if the character is a letter
