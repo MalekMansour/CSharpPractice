@@ -32,7 +32,6 @@ class Program
 
     static void Main(string[] args)
     {
-        // Infinite loop to allow the user to input strings repeatedly
         while (true)
         {
             // Ask the user for input
