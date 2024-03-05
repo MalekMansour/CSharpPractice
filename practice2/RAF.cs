@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Text.Json;
 
 class Event
@@ -28,6 +27,7 @@ class Program
         Event deserializedEvent = JsonSerializer.Deserialize<Event>(jsonFromFile);
         Console.WriteLine(deserializedEvent.EventNumber);
         Console.WriteLine(deserializedEvent.Location);
+        Console.WriteLine("Tech Competition");
         ReadFromFile();
     }
 
@@ -38,23 +38,21 @@ class Program
             writer.Write("Hackathon");
         }
 
-        // Read first middle and last character
-        using (FileStream fileStream = new FileStream("event.txt", FileMode.Open, FileAccess.Read))
+        // read first, middle, and last characters
+        using (StreamReader reader = new StreamReader("event.txt"))
         {
-            using (StreamReader reader = new StreamReader(fileStream))
-            {
-                reader.BaseStream.Seek(reader.BaseStream.Length / 2, SeekOrigin.Begin);
-                char firstChar = (char)reader.Read();
-                reader.BaseStream.Seek(0, SeekOrigin.End);
-                char lastChar = (char)reader.Read();
-                reader.BaseStream.Seek(reader.BaseStream.Length / 2, SeekOrigin.Begin);
-                char middleChar = (char)reader.Read();
-                Console.WriteLine("In Word: Hackathon");
-                Console.WriteLine($"The First Character is: \"{firstChar}\"");
-                Console.WriteLine($"The Middle Character is: \"{middleChar}\"");
-                Console.WriteLine($"The Last Character is: \"{lastChar}\"");
-                Console.ReadKey();
-            }
+            string word = reader.ReadToEnd();
+            Console.WriteLine($"In Word: {word}");
+            int length = word.Length;
+
+            char firstChar = word[0];
+            char middleChar = word[length / 2];
+            char lastChar = word[length - 1];
+
+            Console.WriteLine($"The First Character is: \"{firstChar}\"");
+            Console.WriteLine($"The Middle Character is: \"{middleChar}\"");
+            Console.WriteLine($"The Last Character is: \"{lastChar}\"");
+            Console.ReadKey();
         }
     }
 }
