@@ -24,6 +24,7 @@ namespace lab6
         // Method to serialize Event object to a file
         static void SerializeEvent(string filepath, Event eve)
         {
+            // Using BinaryFormatter to serialize the object
             using (FileStream stream = new FileStream(filepath, FileMode.Create))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -34,6 +35,7 @@ namespace lab6
         // Method to deserialize Event object from a file
         static Event DeserializeEvent(string filepath)
         {
+            // Using BinaryFormatter to deserialize the object
             using (FileStream stream = new FileStream(filepath, FileMode.Open))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -53,7 +55,7 @@ namespace lab6
             Console.WriteLine("Tech Competition");
             Console.WriteLine("In Word: Hackathon");
 
-            // Reading first, middle, and last characters
+            // Reading first, middle, and last characters using FileStream and Seek method
             using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
             {
                 byte[] buffer = new byte[3];
@@ -80,11 +82,9 @@ namespace lab6
             try
             {
                 // Creating an Event object
-                Event calgaryEvent = new Event();
-                calgaryEvent.EventNumber = 1;
-                calgaryEvent.Location = "Calgary";
+                Event calgaryEvent = new Event(1, "Calgary");
 
-                string filePath = @"../../data/textfile1.txt";
+                string filePath = "event.txt"; // File name changed as per instruction
 
                 // Serializing the Event object
                 SerializeEvent(filePath, calgaryEvent);
