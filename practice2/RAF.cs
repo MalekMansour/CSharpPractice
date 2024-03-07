@@ -7,7 +7,7 @@ namespace lab6
     internal class Program
     {
         [Serializable]
-        class Event
+        public class Event
         {
             public int EventNumber { get; set; }
             public string Location { get; set; }
@@ -17,8 +17,6 @@ namespace lab6
                 EventNumber = eventNumber;
                 Location = location;
             }
-
-            public Event() { }
         }
 
         static void Main(string[] args)
@@ -27,7 +25,7 @@ namespace lab6
             {
                 Event calgaryEvent = new Event(1, "Calgary");
 
-                string filePath = "event.txt"; 
+                string filePath = "event.txt";
 
                 // serializing
                 SerializeEvent(filePath, calgaryEvent);
@@ -37,17 +35,14 @@ namespace lab6
                 Console.WriteLine(deserializedEvent.EventNumber);
                 Console.WriteLine(deserializedEvent.Location);
 
-                // reading from file 
                 ReadFromFile(filePath);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
             Console.ReadKey();
         }
-
-        // Method to serialize Event object to a file
         static void SerializeEvent(string filepath, Event eve)
         {
             using (FileStream stream = new FileStream(filepath, FileMode.Create))
@@ -56,8 +51,7 @@ namespace lab6
                 formatter.Serialize(stream, eve);
             }
         }
-        
-        // Method to deserialize Event object from a file
+
         static Event DeserializeEvent(string filepath)
         {
             using (FileStream stream = new FileStream(filepath, FileMode.Open))
@@ -67,7 +61,6 @@ namespace lab6
             }
         }
 
-        // Method to read from file and display first, middle, and last characters
         static void ReadFromFile(string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -97,6 +90,7 @@ namespace lab6
                 fileStream.Read(buffer, 0, 1);
                 Console.WriteLine($"The Last Character is: \"{(char)buffer[0]}\"");
             }
+            Console.ReadKey();
         }
     }
 }
